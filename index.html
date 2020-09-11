@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+  </head>
+  <style>
+    #aaa {
+      width: 350px;
+      height: 250px;
+    }
+
+    .center {
+      margin-bottom: 1rem;
+    }
+  </style>
+  <body>
+    <div class="center">
+      <button onclick="goBack()">Go Back</button>
+      <button onclick="click1()">Stop & Continue</button>
+    </div>
+    <img id="aaa" src="banner1.jpg" />
+    <script>
+      var image = document.getElementById("aaa");
+      var img = [
+        "image/computers-2.png",
+        "image/computers-3.png",
+        "image/computers-4.jpeg",
+        "image/computers.png",
+      ];
+      var index = 0;
+      var num = 0;
+      var q = setInterval(slide, 1000);
+      function slide() {
+        image.src = img[index];
+        index++;
+        if (index >= img.length) {
+          index = 0;
+        }
+      }
+      setInterval(q);
+      function click1() {
+        num++;
+        if (num == 1) {
+          clearInterval(q);
+        } else if (num == 2) {
+          q = setInterval(slide, 1000);
+          num = 0;
+        }
+      }
+      function goBack() {
+        window.history.back();
+        console.log("ajillalaa");
+      }
+    </script>
+  </body>
+</html>
